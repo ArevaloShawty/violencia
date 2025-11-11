@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violencia Patrimonial: Información y Recursos de Ayuda en El Salvador</title>
+    <!-- Iconos de Font Awesome para un toque profesional -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos Generales y Reset */
+        :root {
+            --color-principal: #003366; /* Azul Oscuro (Institucional) */
+            --color-secundario: #0077b6; /* Azul Medio (Enlaces) */
+            --color-acento: #e63946; /* Rojo Fuerte (Advertencias y Resalte) */
+            --color-fondo: #f8f9fa; /* Fondo muy claro */
+            --color-texto: #212529;
+            --sombra-card: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Encabezado y Navegación */
+        header {
+            background-color: var(--color-principal);
+            color: white;
+            padding: 1.5rem 0;
+            border-bottom: 8px solid var(--color-acento); /* Línea de acento fuerte */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            padding: 10px 18px;
+            border-radius: 50px; /* Pill shape */
+            transition: background-color 0.3s, transform 0.2s;
+            font-weight: 700;
+        }
+
+        nav a:hover {
+            background-color: var(--color-secundario);
+            transform: translateY(-2px);
+        }
+
+        .nav-toggle {
+            display: none; 
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Contenido Principal y Secciones (Cards) */
+        main {
+            padding: 3rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: var(--sombra-card);
+            border-left: 6px solid var(--color-principal);
+            transition: box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            color: var(--color-principal);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 3px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .card h2 i {
+            color: var(--color-acento);
+            margin-right: 10px;
+        }
+
+        .card h3 {
+            color: var(--color-secundario);
+            margin-top: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* Sección de Formas de Manifestación */
+        .formas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .forma-item {
+            padding: 25px;
+            background-color: #e6f7ff; /* Fondo celeste suave */
+            border-radius: 8px;
+            border-bottom: 4px solid var(--color-secundario);
+        }
+
+        .forma-item i {
+            color: var(--color-acento);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Estilos para la Tabla de Datos */
+        #estadisticas {
+            border-left-color: var(--color-acento);
+        }
+        
+        .table-responsive {
+            overflow-x: auto; 
+            margin-top: 20px;
+        }
+
+        #estadisticas table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #estadisticas th, #estadisticas td {
+            padding: 15px 18px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        #estadisticas th {
+            background-color: var(--color-principal);
+            color: white;
+            font-weight: 700;
+        }
+
+        #estadisticas tbody tr:nth-child(even) {
+            background-color: #f3f6f9;
+        }
+
+        #estadisticas tbody tr:hover {
+            background-color: #eaf4f4;
+        }
+        
+        #estadisticas tbody tr:last-child td {
+             border-bottom: none;
+        }
+
+        #estadisticas tfoot td {
+            background-color: #e0e0e0;
+            font-style: italic;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .source-link {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* Sección de Recursos de Ayuda */
+        .recursos {
+            border-left: 6px solid var(--color-acento);
+        }
+
+        .recursos-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .recurso-item {
+            flex: 1 1 calc(50% - 15px);
+            min-width: 300px;
+            padding: 25px;
+            background-color: #ffeef0; /* Fondo de alerta suave */
+            border-radius: 8px;
+            border: 1px solid #f0b0b0;
+        }
+
+        .recurso-item ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .recurso-item li {
+            margin-bottom: 10px;
+        }
+        
+        .recurso-item strong {
+            color: var(--color-acento);
+        }
+        
+        .recurso-item a {
+            color: var(--color-principal);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .recurso-item a:hover {
+            text-decoration: underline;
+            color: var(--color-acento);
+        }
+
+        .advertencia {
+            background-color: var(--color-acento);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: 700;
+            flex-basis: 100%; 
+            display: flex;
+            align-items: center;
+        }
+        
+        .advertencia i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: var(--color-principal);
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--color-secundario);
+        }
+
+        /* Media Queries para Responsiveness Móvil (Tablet y teléfonos grandes) */
+        @media (max-width: 768px) {
+            /* Ajustes del Encabezado y Navegación */
+            header .container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            header h1 {
+                margin-bottom: 15px;
+                text-align: center;
+            }
+            
+            #navbar {
+                display: none; 
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            #navbar.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 5px 0;
+                text-align: center;
+                width: 100%;
+                background-color: var(--color-secundario);
+            }
+            
+            .nav-toggle {
+                display: block; 
+                position: absolute;
+                right: 20px;
+                top: 25px;
+            }
+            
+            /* Ajustes Generales de Contenido */
+            main {
+                padding: 2rem 0; /* Menos padding vertical */
+            }
+            .card {
+                padding: 30px 20px; /* Reducción de padding en tarjetas */
+                margin-bottom: 20px;
+            }
+            .card h2 {
+                font-size: 1.6rem; /* Títulos un poco más pequeños */
+            }
+            
+            .formas-grid {
+                gap: 15px; /* Espaciado más compacto en grid */
+            }
+            
+            .recurso-item {
+                flex-basis: 100%;
+                min-width: 100%;
+            }
+        }
+        
+        /* Media Queries para Teléfonos Móviles Pequeños (menos de 576px) */
+        @media (max-width: 576px) {
+            .container {
+                width: 95%; /* Usar más ancho de pantalla */
+            }
+            header h1 {
+                font-size: 1.4rem;
+            }
+            .card {
+                padding: 20px 10px; /* Padding mínimo para pantallas pequeñas */
+            }
+            .forma-item {
+                padding: 15px;
+            }
+            /* Ajuste de padding en tabla para evitar desbordamiento */
+            #estadisticas th, #estadisticas td {
+                padding: 10px 8px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-hand-holding-usd"></i> Violencia Patrimonial en El Salvador</h1>
+            <nav id="navbar">
+                <a href="#que-es">¿Qué es?</a>
+                <a href="#formas">Tipos y Formas</a>
+                <a href="#estadisticas">Estadísticas</a>
+                <a href="#ayuda">Recursos de Ayuda</a>
+            </nav>
+            <button class="nav-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="que-es" class="card">
+            <h2><i class="fas fa-info-circle"></i> ¿Qué es la Violencia Patrimonial?</h2>
+            <p>La **Violencia Patrimonial** es una forma de violencia contra las mujeres (y en algunos marcos legales, contra cualquier persona en el ámbito familiar) que se manifiesta en la sustracción, destrucción, retención o distracción de objetos, documentos personales, bienes y valores, derechos patrimoniales o recursos económicos de la víctima. Su propósito principal es minar la autonomía y generar **dependencia económica** para controlar y someter a la persona.</p>
+            <p>En El Salvador, esta conducta está tipificada dentro de la Ley Especial Integral para una Vida Libre de Violencia para las Mujeres (LEIV), y su denuncia es crucial para el proceso de restitución de derechos y bienes.</p>
+        </section>
+
+        <section id="formas" class="card">
+            <h2><i class="fas fa-list-alt"></i> Tipos y Formas de Manifestación</h2>
+            <p>La violencia patrimonial, a menudo solapada con la violencia económica, se presenta de diversas maneras que buscan dejar a la víctima en la indefensión material:</p>
+            <div class="formas-grid">
+                <div class="forma-item">
+                    <h3><i class="fas fa-money-bill-wave"></i> Control Financiero</h3>
+                    <p>Manejo exclusivo del dinero, prohibición de trabajar o acceso limitado a cuentas bancarias, incluso si la víctima ha generado los ingresos.</p>
+                </div>
+                <div class="forma-item">
+                    <h3><i class="fas fa-file-alt"></i> Retención de Documentos</h3>
+                    <p>Ocultar o destruir documentos de identidad (DUI), títulos de propiedad, pasaportes, o cualquier documento legal necesario para trámites personales.</p>
+                </div>
+                <div class="forma-item">
+                    <h3><i class="fas fa-home"></i> Daño a Bienes</h3>
+                    <p>Destrucción deliberada de objetos personales, herramientas de trabajo (que impiden generar ingresos), o daños a bienes inmuebles comunes.</p>
+                </div>
+                <div class="forma-item">
+                    <h3><i class="fas fa-balance-scale"></i> Despojo o Fraude</h3>
+                    <p>Forzar la firma de documentos legales (ventas, hipotecas, herencias) que despojan a la víctima de sus derechos patrimoniales o la endeudan.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="estadisticas" class="card">
+            <h2><i class="fas fa-chart-bar"></i> Datos y Estadísticas en El Salvador</h2>
+            <p>La violencia patrimonial representa un porcentaje significativo de los casos reportados de violencia de género. El registro es vital para visibilizar este problema.</p>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Violencia</th>
+                            <th>Casos Reportados (Anual Estimado)</th>
+                            <th>Institución de Registro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Violencia Psicológica</td>
+                            <td>12,000 - 15,000</td>
+                            <td>ISDEMU / FGR</td>
+                        </tr>
+                        <tr>
+                            <td>Violencia Física</td>
+                            <td>8,000 - 10,000</td>
+                            <td>FGR / Medicina Legal</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; color: var(--color-acento);">Violencia Patrimonial / Económica</td>
+                            <td style="font-weight: bold; color: var(--color-acento);">3,000 - 5,000</td>
+                            <td style="font-weight: bold; color: var(--color-acento);">ISDEMU / FGR</td>
+                        </tr>
+                        <tr>
+                            <td>Violencia Sexual</td>
+                            <td>1,800 - 2,500</td>
+                            <td>FGR</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">**Nota:** Las cifras son ilustrativas y basadas en promedios históricos de reportes oficiales (ORMUSA, ISDEMU, FGR). Los casos de violencia patrimonial suelen estar subregistrados.</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <p class="source-link">Para datos actualizados y desagregados, consulte el sitio del <a href="https://observatoriodeviolenciaormusa.org/" target="_blank">Observatorio de Violencia de Género de ORMUSA</a>.</p>
+        </section>
+
+        <section id="ayuda" class="card recursos">
+            <h2><i class="fas fa-hands-helping"></i> Recursos de Ayuda y Orientación en El Salvador</h2>
+            <p>Si eres víctima o testigo de violencia patrimonial en El Salvador, **¡actúa de inmediato!** Estas instituciones pueden brindarte apoyo legal, psicológico y social especializado. </p>
+
+            <div class="recursos-list">
+                <div class="recurso-item">
+                    <h3><i class="fas fa-phone"></i> Líneas de Emergencia y Orientación</h3>
+                    <ul>
+                        <li><i class="fas fa-circle-notch"></i> **Emergencias Nacionales (Policía):** <strong>911</strong> (Línea de auxilio policial y civil inmediato).</li>
+                        <li><i class="fas fa-circle-notch"></i> **Línea ISDEMU (Orientación y Ayuda):** <strong>126</strong> (Atención gratuita, confidencial y 24/7 del Instituto Salvadoreño para el Desarrollo de la Mujer).</li>
+                        <li><i class="fas fa-circle-notch"></i> **ACNUR (Apoyo a Refugiados/Desplazados):** <strong>800-7096</strong> (Línea gratuita para atención especializada).</li>
+                    </ul>
+                </div>
+                
+                <div class="recurso-item">
+                    <h3><i class="fas fa-building"></i> Instituciones de Atención y Enlaces</h3>
+                    <ul>
+                        <li><i class="fas fa-link"></i> **ISDEMU - Dirección de Atención:** <a href="https://isdemu.gob.sv/" target="_blank">Portal Oficial del Instituto Salvadoreño para el Desarrollo de la Mujer (ISDEMU).</a></li>
+                        <li><i class="fas fa-link"></i> **Ciudad Mujer:** <a href="http://www.ciudadmujer.gob.sv/" target="_blank">Busca el centro de atención integral más cercano para apoyo legal y psicológico.</a></li>
+                        <li><i class="fas fa-link"></i> **Fiscalía General de la República (FGR):** <a href="https://www.fgr.gob.sv/" target="_blank">Información para interponer denuncias.</a></li>
+                        <li><i class="fas fa-link"></i> **Procuraduría General de la República (PGR):** <a href="https://www.pgr.gob.sv/" target="_blank">Servicios de defensa pública y asistencia legal.</a></li>
+                    </ul>
+                </div>
+                
+                <p class="advertencia"><i class="fas fa-exclamation-triangle"></i> **MEDIDAS DE SEGURIDAD:** Si accedes a esta página o realizas llamadas desde dispositivos compartidos, borra inmediatamente el historial, la caché de navegación y el registro de llamadas para tu seguridad. La violencia no es un juego.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Información con fines de orientación y visibilización. Busca siempre asesoría legal y psicológica en las instituciones oficiales de El Salvador.</p>
+        <p>&copy; 2025 Recursos Informativos sobre Violencia Patrimonial. Por César Arévalo.</p>
+    </footer>
+
+    <script>
+        // Código para la funcionalidad del menú de navegación en dispositivos móviles
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navbar = document.getElementById('navbar');
+
+            navToggle.addEventListener('click', () => {
+                // Alterna la clase 'active' para mostrar/ocultar el menú
+                navbar.classList.toggle('active');
+
+                // Alternar el icono del botón para una mejor UX
+                const icon = navToggle.querySelector('i');
+                if (navbar.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times'); // Cambiar a 'X' de cerrar
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Ocultar el menú después de hacer clic en un enlace (en móvil)
+            const navLinks = navbar.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbar.classList.contains('active')) {
+                        navbar.classList.remove('active');
+                        navToggle.querySelector('i').classList.remove('fa-times');
+                        navToggle.querySelector('i').classList.add('fa-bars');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
